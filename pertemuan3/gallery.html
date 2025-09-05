@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #4facfe;
+      margin-bottom: 20px;
+    }
+    marquee {
+      border: 2px solid #4facfe;
+      border-radius: 10px;
+      padding: 10px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    marquee img {
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      margin: 0 10px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    marquee img:hover {
+      transform: scale(1.1);
+      border-color: #4facfe;
+    }
+  </style>
+</head>
+<body>
+  <h2>🖼 My Gallery</h2>
+  <marquee behavior="scroll" direction="left" scrollamount="5"
+           onmouseover="this.stop();" onmouseout="this.start();">
+    <img src="./gambar/menupage.png" width="150" height="100">
+    <img src="./gambar/navbarcode.png" width="150" height="100">
+    <img src="./gambar/tabel.png" width="150" height="100">
+    <img src="./gambar/visdat.png" width="150" height="100">
+    <img src="./gambar/visdat1.png" width="150" height="100">
+  </marquee>
+</body>
+</html>
