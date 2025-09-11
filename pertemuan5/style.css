@@ -1,0 +1,239 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f4f6f8; /* abu soft */
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #009688;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 5px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Navigation */
+nav {
+  background: #00695c;
+  margin: 5px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Running text */
+.running-text {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #004d40;
+  color: #ffeb3b;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.running-text p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: slideText 12s linear infinite;
+}
+
+@keyframes slideText {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffeb3b;
+}
+
+/* Content wrapper */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  margin: 5px;
+}
+
+/* Sidebar kiri & kanan */
+.content {
+  flex: 1;
+  border: 1px solid #ddd;
+  margin: 5px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.content h2 {
+  margin-bottom: 10px;
+  color: #009688;
+}
+
+/* Main content */
+main {
+  flex: 2;
+  border: 1px solid #ddd;
+  margin: 5px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  min-height: 500px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+main h2.section-title {
+  font-size: 1.8em;
+  color: #004d40;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 3px solid #009688;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Footer */
+footer {
+  background: #009688;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Biodata Container */
+.biodata-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Profile */
+.profile {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.profile img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.profile-info h3 {
+  margin-bottom: 5px;
+  color: #00695c;
+}
+
+.btn {
+  padding: 8px 15px;
+  border: none;
+  background: #009688;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00796b;
+}
+
+/* Details */
+.details {
+  flex: 2;
+  min-width: 280px;
+}
+
+.details section {
+  margin-bottom: 20px;
+}
+
+.details h3.subtitle {
+  font-size: 1.2em;
+  color: #00695c;
+  margin: 15px 0 10px 0;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* CV Table */
+.cv-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cv-table td {
+  padding: 6px 10px;
+  vertical-align: top;
+  font-size: 0.95em;
+}
+
+.cv-table tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* List styling */
+.details ul {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+.details ul li {
+  margin-bottom: 6px;
+}
+
+/* Skills list */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills li {
+  background: #e0f2f1;
+  padding: 6px 12px;
+  border-radius: 15px;
+  list-style: none;
+  font-size: 0.9em;
+  color: #004d40;
+  font-weight: 500;
+}
