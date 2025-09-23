@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Manajemen Transportasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+    .container {
+      width: 80%;
+      max-width: 700px;
+      margin: 2rem auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .card {
+      background: #f9f9f9;
+      padding: 12px;
+      margin-top: 10px;
+      border-left: 5px solid #007bff;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>Sistem Manajemen Transportasi</header>
+
+  <div class="container">
+    <h2>Form Penyewaan Kendaraan</h2>
+    <form id="formPelanggan">
+      <input type="text" id="nama" placeholder="Nama Pelanggan" required>
+      <input type="text" id="nomorTelepon" placeholder="Nomor Telepon" required>
+      <input type="text" id="kendaraanDisewa" placeholder="Kendaraan yang Disewa" required>
+      <button type="submit">Sewa Kendaraan</button>
+    </form>
+
+    <h2>Daftar Pelanggan yang Menyewa</h2>
+    <div id="daftarPelanggan"></div>
+  </div>
+
+  <script>
+    // === Class Pelanggan sesuai instruksi ===
+    class Pelanggan {
+      constructor(nama, nomorTelepon) {
+        this.nama = nama;
+        this.nomorTelepon = nomorTelepon;
+        this.kendaraanDisewa = null;
+      }
+
+      // 🔹 metode untuk mencatat transaksi penyewaan
+      sewaKendaraan(kendaraan) {
+        this.kendaraanDisewa = kendaraan;
+      }
+
+      // menampilkan info pelanggan
+      infoPelanggan() {
+        return `${this.nama} (${this.nomorTelepon}) menyewa ${this.kendaraanDisewa}`;
+      }
+    }
+
+    // === Data penyewa disimpan di array ===
+    let daftarPelanggan = [];
+
+    const form = document.getElementById("formPelanggan");
+    const daftarDiv = document.getElementById("daftarPelanggan");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const nomorTelepon = document.getElementById("nomorTelepon").value;
+      const kendaraanDisewa = document.getElementById("kendaraanDisewa").value;
+
+      // buat objek pelanggan
+      const pelanggan = new Pelanggan(nama, nomorTelepon);
+
+      // catat transaksi sewa lewat metode
+      pelanggan.sewaKendaraan(kendaraanDisewa);
+
+      // simpan ke daftar
+      daftarPelanggan.push(pelanggan);
+
+      // tampilkan daftar
+      tampilkanDaftar();
+
+      form.reset();
+    });
+
+    function tampilkanDaftar() {
+      daftarDiv.innerHTML = "";
+      daftarPelanggan.forEach(pelanggan => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.textContent = pelanggan.infoPelanggan();
+        daftarDiv.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
