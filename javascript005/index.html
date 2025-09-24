@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Produk</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 60%; margin-top: 15px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    th { background-color: #f4f4f4; }
+    button { padding: 5px 10px; margin: 2px; cursor: pointer; }
+    input { margin: 5px; padding: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Manajemen Produk Toko Online</h2>
+
+  <!-- Form tambah produk -->
+  <input type="text" id="namaProduk" placeholder="Nama Produk">
+  <input type="number" id="hargaProduk" placeholder="Harga Produk">
+  <button id="btnTambah">Tambah Produk</button>
+
+  <!-- Tabel produk -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Harga</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="produkTabel"></tbody>
+  </table>
+
+  <script>
+    // Data awal (minimal 5 produk)
+    let produkList = [
+      { id: 1, nama: "Laptop", harga: 12000000 },
+      { id: 2, nama: "Smartphone", harga: 5000000 },
+      { id: 3, nama: "Tablet", harga: 7000000 },
+      { id: 4, nama: "Headphone", harga: 1500000 },
+      { id: 5, nama: "Smartwatch", harga: 2500000 }
+    ];
+
+    // Fungsi tambah produk (Spread Operator)
+    function tambahProduk(id, nama, harga) {
+      const produkBaru = { id, nama, harga };
+      produkList = [...produkList, produkBaru]; 
+      tampilkanProduk();
+    }
+
+    // Fungsi hapus produk (Rest Parameter)
+    function hapusProduk(...id) {
+      produkList = produkList.filter((produk) => !id.includes(produk.id));
+      tampilkanProduk();
+    }
+
+    // Fungsi tampilkan produk (Destructuring)
+    function tampilkanProduk() {
+      const tabel = document.getElementById("produkTabel");
+      tabel.innerHTML = "";
+
+      produkList.forEach(({ id, nama, harga }) => {
+        const row = `
+          <tr>
+            <td>${id}</td>
+            <td>${nama}</td>
+            <td>Rp ${harga.toLocaleString()}</td>
+            <td><button onclick="hapusProduk(${id})">Hapus</button></td>
+          </tr>
+        `;
+        tabel.innerHTML += row;
+      });
+    }
+
+    // Event Listener tombol tambah
+    document.getElementById("btnTambah").addEventListener("click", () => {
+      const nama = document.getElementById("namaProduk").value;
+      const harga = parseInt(document.getElementById("hargaProduk").value);
+      const id = produkList.length ? produkList[produkList.length - 1].id + 1 : 1;
+
+      if (nama && harga) {
+        tambahProduk(id, nama, harga);
+        document.getElementById("namaProduk").value = "";
+        document.getElementById("hargaProduk").value = "";
+      } else {
+        alert("Isi nama dan harga produk!");
+      }
+    });
+
+    // Tampilkan produk awal
+    tampilkanProduk();
+  </script>
+</body>
+</html>
