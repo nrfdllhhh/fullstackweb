@@ -1,0 +1,89 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Navbar */
+nav.navbar {
+  width: 100%;
+  background-color: #282c34;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+nav.navbar .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav.navbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav.navbar .nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+nav.navbar .nav-links a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav.navbar .nav-links a:hover,
+nav.navbar .nav-links a.active {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+/* Konten utama */
+main {
+  padding: 100px 20px 40px; /* kasih jarak dari navbar & bawah */
+  display: flex;
+  justify-content: center; /* center horizontal */
+}
+
+/* Bungkus konten */
+.content-wrapper {
+  max-width: 900px; /* biar nggak full */
+  width: 100%;
+  text-align: center;
+}
+
+/* Style teks */
+.content-wrapper h1,
+.content-wrapper h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #222;
+}
+
+.content-wrapper p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+}
